@@ -1,6 +1,6 @@
 PROJECT OVERVIEW
 
-This is a project has 4 parts which are Section A, Section B, Section C and Section D.
+This is a project has 6 parts which are Section A, Section B, Section C, Section D, Section E and Section F.
 The program allows users to enter student information such as their names, grades and subjects.
 The tool used for this system is pyCharm.
 It can perform other functions such as calculating student average and class average.
@@ -23,6 +23,10 @@ This shows the list what the program can perform.
 3. Displays results of student information.
 4. Validating student grades entered.
 5. Adding student grades.
+6. Creating a class design with student objects.
+7. Using advanced operations such as adding, removing and searching for students by average or grade.
+8. Using comprehensive Testing to ensure that it is thorougly tested.
+9. Searching and sorting algorithms.
 
 CLASS ARCHITECTURE
 
@@ -59,6 +63,52 @@ Section D:
 -non-numeric grade input and missing data.
 -providing informative error messages
 
+SECTION E:
+Transitioning to Object-Oriented Programming
+1. Class Design:
+-Creating Student Class with attributes student's name, grades and mthods to add grades, calculate the average and print the student details.
+-Develop a GradeBook that contains a collection of student objects and provides methods to manage student records.
+
+2. Advanced Operations:
+-Implementing methods in the gradebook class to add, remove, and search for students.
+-Includes sorting students by their average grade.
+
+3.Comprehensive testing:
+-ensuring that system is thoroughly tested including unit tests for individual methods.
+
+SECTION F
+Works on Execption Handling and Final Enhancements.
+1. Exception Handling
+- e.g StudentNotFoundError
+
+2. Searching and Sorting:
+
+3. Edge Cases to Handle
+
+Class Architecture (Textual Description)
+
+The system uses two main classes, Student and Gradebook, plus a set of custom exception classes. 
+Section E introduced the two main classes. Student and GrdaeBook
+Section F added the exceptions and extended Gradebook with searching and sorting.
+
+STUDENT
+A student object represents one student. Its stores the student name and dictionary of grades. with one list for each subject.(Math, English and Science.)
+It is responsible for its own data. It can add a grade to a subject, calculate the average for one subject, calculate the overall average, and print its own details.
+Every grade is checked before it is stored.
+
+GRADEBOOK
+A Gradebook object manages the whole class. It has a list of Student objects and provides the operations that work for students:
+Managing students: adding a student it also rejects empty and duplicate names, and removing a student.
+Searching: finding a student by exact name, finding by part of a name, and a version of the exact search that raises an error if the student is missing. Name matching ignores upper and lower case.
+Grades: adding a grade to a student and updating an existing grade. If an update is invalid, the old grade is kept.
+Sorting: sorting students by name, by overall average, or by their average in one subject. Sorting returns a new list, so the original order is never changed.
+Display: printing the details of all students or of a given list.
+
+RELATIONSHIP BETWEEN CLASSES 
+Gradebook and Student have a one-to-many composition relationship. One Gradebook contains many Student objects, and the gradebook creates, finds and removes them. A Student does not know about the gradebook.
+When a grade is added through the gradebook, it first finds the correct student and then asks that Student to store the grade. This keeps each class focused on one job: Student handles the data for one person, and Gradebook handles the collection.
+
+
 INPUT/OUTPUT
 
 shows screenshots of input and output statements in the terminal when running the program.
@@ -78,10 +128,15 @@ Section C: Implements a feature to search for a specific student by name and ret
 <img width="1920" height="1080" alt="Screenshot (351)" src="https://github.com/user-attachments/assets/5828d10a-fe8e-4ab3-a5c9-c956e67794e2" />
 
 Section D: Shows a summary table of students names along with their grades, averages and class averages, including those of the added student.
-<img width="1920" height="1080" alt="Screenshot (472)" src="https://github.com/user-attachments/assets/8c749e76-be05-4fba-a4e4-c032de9ad490" />
+
+Section E: Classes and objects
+<img width="1920" height="1080" alt="Screenshot (543)" src="https://github.com/user-attachments/assets/c4147fe8-b892-4836-b6eb-d5b02c638dc9" />
+
+Section F
+<img width="1920" height="1080" alt="Screenshot (544)" src="https://github.com/user-attachments/assets/72e9eecd-4832-4028-931a-454ae9ce4510" />
 
 
-<img width="1920" height="1080" alt="Screenshot (471)" src="https://github.com/user-attachments/assets/d291038b-5663-4e00-a1ac-d7702e0454a9" />
+
 
 
 ASSUMPTIONS AND LIMITATIONS
@@ -116,7 +171,7 @@ The value entered can be invalid and programs denies user from proceeding.
 | B       | Search for existing student | Grades displayed        | Grades were displayed             | Pass   |
 | C       | Test Feature                | Expected output         | Expected output was produced      | Pass   |
 | D       | Modularization of functions | Adding new student name | Entering name that already exists | Fail   |
-|         |                             |                         |                                   |        |
+| E + F   | Creating classes            | Name and Grade          | Invalid name                      | Fail   |
 
 
 KNOWN ISSUES
@@ -128,3 +183,6 @@ Section B: an issue was discovered in line 39, whereby student_average variable 
 The issue was resolved by entering the correct variable 'student_average' instead of 'average'.
 
 Section D: The brief says each function should have a clear purpose and be reusable. A few of mine mix asking for input with doing the work. This can be resovled by using the main menu feature.
+
+REFERENCES
+This work is referenced from Introduction to python programming notes and a website https://www.iimchyderabad.com/Material/introduction-to-python-programming.pdf 
